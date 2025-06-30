@@ -1,5 +1,6 @@
 import Animation from './reusable/animation';
 import Vector2 from './util/vector2';
+import bddWave from './assets/bdd_waving.png';
 
 function HomePage() {
   return (
@@ -15,7 +16,7 @@ function HomePage() {
           </p>
         </div>
         <Animation
-          spritesheet='/src/assets/bdd_waving.png'
+          spritesheet={bddWave}
           ssPos={new Vector2(0, 0)}
           ssSize={new Vector2(416, 744)}
           fps={8}
