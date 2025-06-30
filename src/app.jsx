@@ -7,12 +7,14 @@ function App() {
   return (
     <div className='min-h-screen bg-[#ddd]'>
       <Header />
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/projects' element={<ProjectsPage />} />
-        </Routes>
-      </BrowserRouter>
+      <main>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/projects' element={<ProjectsPage />} />
+          </Routes>
+        </BrowserRouter>
+      </main>
     </div>
   );
 }
