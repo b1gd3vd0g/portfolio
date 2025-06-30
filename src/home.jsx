@@ -1,14 +1,7 @@
-import Header from './header';
 import Animation from './reusable/animation';
 import Vector2 from './util/vector2';
 
 function HomePage() {
-  // Configure the Image for me waving!
-  const waving = new Image();
-  waving.addEventListener('load', () => console.log('loaded'));
-  waving.addEventListener('error', () => console.log('error'));
-  waving.src = '/src/assets/bdd_waving.png';
-
   return (
     <>
       <div className='size-fit flex m-auto p-[10px]'>
@@ -22,7 +15,7 @@ function HomePage() {
           </p>
         </div>
         <Animation
-          spritesheet={waving}
+          spritesheet='/src/assets/bdd_waving.png'
           ssPos={new Vector2(0, 0)}
           ssSize={new Vector2(416, 744)}
           fps={8}
