@@ -1,6 +1,6 @@
-import Animation from './reusable/animation';
-import Vector2 from './util/vector2';
-import bddWave from './assets/bdd_waving.png';
+import Animation from '../reusable/animation';
+import Vector2 from '../util/vector2';
+import bddWave from '../assets/bdd_waving.png';
 
 import controller from '/src/assets/bullets/controller.png';
 import robot from '/src/assets/bullets/robot.png';
