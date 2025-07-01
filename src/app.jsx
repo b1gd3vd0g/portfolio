@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='min-h-screen bg-[#ddd]'>
       <Header />
-      <main>
+      <main className='p-[25px] font-[vt323] text-xl'>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<HomePage />} />
