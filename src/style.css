@@ -5,9 +5,17 @@
   src: url('./assets/font/vt323/VT323-Regular.ttf') format('truetype');
 }
 
+@theme {
+  --mint-green: #98ff98;
+}
+
 @layer base {
   h1 {
     @apply text-5xl mb-[0.5em] text-center;
+  }
+
+  h2 {
+    @apply text-4xl;
   }
 
   p {
