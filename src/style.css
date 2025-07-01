@@ -4,3 +4,22 @@
   font-family: 'vt323';
   src: url('./assets/font/vt323/VT323-Regular.ttf') format('truetype');
 }
+
+@layer base {
+  h1 {
+    @apply text-5xl mb-[0.5em] text-center;
+  }
+
+  p {
+    @apply tracking-wide text-xl;
+  }
+
+  img,
+  canvas {
+    @apply [image-rendering:pixelated];
+  }
+}
+
+.smoothed {
+  image-rendering: unset;
+}
