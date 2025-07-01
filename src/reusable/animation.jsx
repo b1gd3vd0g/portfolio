@@ -9,9 +9,10 @@ import Vector2 from '../util/vector2';
  * @param {Vector2} props.ssSize The size (in pixels) of a single sprite on the spritesheet.
  * @param {number} props.fps The speed (frames per second) of the animation.
  * @param {number} props.frameCount The number of frames in the animation.
+ * @param {string} props.className The tailwindcss class names for the animation.
  * @returns A canvas element with the desired animation drawn on it.
  */
-function Animation({ spritesheet, ssPos, ssSize, fps, frameCount }) {
+function Animation({ spritesheet, ssPos, ssSize, fps, frameCount, className }) {
   const [ready, setReady] = useState(false);
   const [frame, setFrame] = useState(0);
   const canvas = useRef(null);
@@ -58,6 +59,7 @@ function Animation({ spritesheet, ssPos, ssSize, fps, frameCount }) {
     if (!ready) return;
 
     const context = canvas.current.getContext('2d');
+    context.imageSmoothingEnabled = false;
     context.clearRect(0, 0, ssSize.x, ssSize.y);
     context.drawImage(
       imageRef.current,
@@ -77,7 +79,7 @@ function Animation({ spritesheet, ssPos, ssSize, fps, frameCount }) {
       ref={canvas}
       width={ssSize.x}
       height={ssSize.y}
-      className='h-[200px]'
+      className={className}
     />
   );
 }
