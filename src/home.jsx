@@ -2,6 +2,10 @@ import Animation from './reusable/animation';
 import Vector2 from './util/vector2';
 import bddWave from './assets/bdd_waving.png';
 
+import controller from '/src/assets/bullets/controller.png';
+import robot from '/src/assets/bullets/robot.png';
+import laptop from '/src/assets/bullets/laptop.png';
+
 function HomePage() {
   return (
     <>
@@ -38,17 +42,17 @@ function WhatIDo() {
       <h1 className='text-5xl mb-[0.5em]'>What I make:</h1>
       <ul className='list-disc text-2xl'>
         <li className='flex items-center'>
-          <img src='/src/assets/bullets/controller.png' />
+          <img src={controller} />
           <span className='p-[0.5em]'>Interactive web games to entertain</span>
         </li>
         <li className='flex items-center'>
-          <img src='/src/assets/bullets/laptop.png' />
+          <img src={laptop} />
           <span className='p-[0.5em]'>
             Full-stack web apps to solve real problems
           </span>
         </li>
         <li className='flex items-center'>
-          <img src='/src/assets/bullets/robot.png' />
+          <img src={robot} />
           <span className='p-[0.5em]'>
             Tools to automate away the boring stuff
           </span>
