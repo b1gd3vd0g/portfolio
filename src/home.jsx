@@ -19,8 +19,8 @@ function Hero() {
   return (
     <div className='size-fit flex m-auto p-[10px] items-center'>
       <div className='flex flex-col items-center justify-center'>
-        <h1 className='text-5xl mb-[0.5em] text-center'>Hi, I'm Devin!</h1>
-        <p className='max-w-[500px] tracking-wide text-center'>
+        <h1>Hi, I'm Devin!</h1>
+        <p className='max-w-[500px] text-center'>
           I bring great ideas to life on screen through games, apps, and
           creative coding solutions that run in the cloud.
         </p>
@@ -28,9 +28,10 @@ function Hero() {
       <Animation
         spritesheet={bddWave}
         ssPos={new Vector2(0, 0)}
-        ssSize={new Vector2(416, 744)}
+        ssSize={new Vector2(52, 93)}
         fps={8}
         frameCount={4}
+        className='h-[200px]'
       />
     </div>
   );
@@ -39,7 +40,7 @@ function Hero() {
 function WhatIDo() {
   return (
     <div className='ml-[10vw]'>
-      <h1 className='text-5xl mb-[0.5em]'>What I make:</h1>
+      <h1 className='text-left'>What I make:</h1>
       <ul className='list-disc text-2xl'>
         <li className='flex items-center'>
           <img src={controller} />
