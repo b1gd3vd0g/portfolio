@@ -17,7 +17,7 @@ function HomePage() {
 
 function Hero() {
   return (
-    <div className='size-fit flex m-auto p-[10px]'>
+    <div className='size-fit flex m-auto p-[10px] items-center'>
       <div className='flex flex-col items-center justify-center'>
         <h1 className='text-5xl mb-[0.5em] text-center'>Hi, I'm Devin!</h1>
         <p className='max-w-[500px] tracking-wide text-center'>
