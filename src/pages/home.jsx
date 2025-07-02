@@ -1,16 +1,21 @@
-import Animation from '../reusable/animation';
-import Vector2 from '../util/vector2';
-import bddWave from '../assets/bdd_waving.png';
+import Animation from '/src/reusable/animation';
+import Vector2 from '/src/util/vector2';
 
+import bddWave from '/src/assets/bdd_waving.png';
+import gbcScreenshot from '/src/assets/gbc-screenshots/village.png';
 import controller from '/src/assets/bullets/controller.png';
 import robot from '/src/assets/bullets/robot.png';
 import laptop from '/src/assets/bullets/laptop.png';
+import gbcTitle from '/src/assets/gbc_title.png';
+
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   return (
     <>
       <Hero />
       <WhatIDo />
+      <CheckThisOut />
     </>
   );
 }
@@ -60,6 +65,35 @@ function WhatIDo() {
         </li>
       </ul>
     </div>
+  );
+}
+
+function CheckThisOut() {
+  return (
+    <>
+      <h1>Check this out!</h1>
+      <div className='bg-[var(--mint-green)] size-fit m-auto p-7 rounded-2xl min-w-7/10 max-w-9/10 w-[750px]'>
+        <img src={gbcTitle} className='m-auto' />
+        <img src={gbcScreenshot} className='smoothed pt-7 pb-7' />
+        <p className='text-center'>
+          A 2d platformer adventure game written in JavaScript that runs in the
+          browser! Explore the world, chase down an evil wizard, and save your
+          mama!
+        </p>
+        <div className='flex w-1/1 justify-evenly'>
+          <a
+            href='https://goodbadchad.bigdevdog.com'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <h2 className='underline'>Play now!</h2>
+          </a>
+          <Link to='/projects/goodbadchad'>
+            <h2 className='underline'>Learn more...</h2>
+          </Link>
+        </div>
+      </div>
+    </>
   );
 }
 
