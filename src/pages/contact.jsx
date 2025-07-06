@@ -1,20 +1,43 @@
+import { useState } from 'react';
+
 function ContactPage() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [header, setHeader] = useState('');
+  const [message, setMessage] = useState('');
   return (
     <div>
       <h1>Let's get in touch!</h1>
       <form className='bg-[var(--mint-green)] m-auto w-[750px] max-w-1/1 p-3 rounded-2xl'>
-        <FormGroup label='Name' hint='Jane Doe' />
-        <FormGroup label='Email' hint='janedoe@mail.com' />
-        <FormGroup label='Phone' hint='(253) 555-0987' />
-        <FormGroup label='Header' hint="I'm curious about..." rows={2} />
-        <FormGroup label='Message' hint='[Provide details here]' rows={5} />
-        <SendButton />
+        <FormGroup label='Name' hint='Jane Doe' setter={setName} />
+        <FormGroup label='Email' hint='janedoe@mail.com' setter={setEmail} />
+        <FormGroup label='Phone' hint='(253) 555-0987' setter={setPhone} />
+        <FormGroup
+          label='Header'
+          hint="I'm curious about..."
+          rows={2}
+          setter={setHeader}
+        />
+        <FormGroup
+          label='Message'
+          hint='[Provide details here]'
+          rows={5}
+          setter={setMessage}
+        />
+        <SendButton
+          name={name}
+          email={email}
+          phone={phone}
+          header={header}
+          message={message}
+        />
       </form>
     </div>
   );
 }
 
-function FormGroup({ label, hint, rows = 1, type = 'text' }) {
+function FormGroup({ label, hint, setter, rows = 1, type = 'text' }) {
   const id = label.toLowerCase().replace(/ /g, '_');
   const field =
     rows > 1 ? (
@@ -23,6 +46,11 @@ function FormGroup({ label, hint, rows = 1, type = 'text' }) {
         name={id}
         placeholder={hint}
         className='w-1/1 border resize-none'
+        onBlur={() => {
+          const value = document.querySelector(`#${id}`).value;
+          setter(value);
+        }}
+        rows={rows}
       ></textarea>
     ) : (
       <input
@@ -31,6 +59,10 @@ function FormGroup({ label, hint, rows = 1, type = 'text' }) {
         name={id}
         placeholder={hint}
         className='border w-[400px]'
+        onBlur={() => {
+          const value = document.querySelector(`#${id}`).value;
+          setter(value);
+        }}
       />
     );
   const flex = rows > 1 ? 'flex-col' : 'flex';
