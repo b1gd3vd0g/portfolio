@@ -11,9 +11,17 @@ function Slideshow({ slides }) {
   return (
     <div className='flex-col'>
       <div className='flex items-center space-evenly m-auto max-w-1/1 w-[1000px]'>
-        <img src={arrow} onClick={decrement} className='grow-0 size-15' />
+        <img
+          src={arrow}
+          onClick={decrement}
+          className='size-15 max-w-[5vmin] max-h-[10vmin]'
+        />
         <Slide data={slides[curr]} />
-        <img src={arrow} onClick={increment} className='rotate-180 size-15' />
+        <img
+          src={arrow}
+          onClick={increment}
+          className='rotate-180 size-15 max-w-[5vmin] max-h-[10vmin]'
+        />
       </div>
       <SlideshowDotBar slideCount={slides.length} curr={curr} />
     </div>
@@ -23,7 +31,7 @@ function Slideshow({ slides }) {
 function Slide({ data }) {
   const { image, caption = '' } = data;
   return (
-    <div className='p-7 rounded-2xl bg-[var(--mint-green)]'>
+    <div className='p-7 rounded-2xl bg-[var(--mint-green)] m-2'>
       <img src={image} />
       <p className='text-center'>{caption}</p>
     </div>
