@@ -2,7 +2,7 @@ function ContactPage() {
   return (
     <div>
       <h1>Let's get in touch!</h1>
-      <form className='bg-[var(--mint-green)] m-auto w-[750px] max-w-4/5 p-7 rounded-2xl'>
+      <form className='bg-[var(--mint-green)] m-auto w-[750px] max-w-1/1 p-7 rounded-2xl'>
         <FormGroup label='Name' hint='Jane Doe' />
         <FormGroup label='Email' hint='janedoe@mail.com' />
         <FormGroup label='Phone' hint='(253) 555-0987' />
