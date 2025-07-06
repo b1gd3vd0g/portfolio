@@ -4,6 +4,7 @@ import ProjectsPage from './pages/projects';
 import Header from './header';
 import FourOhFour from './pages/404';
 import GoodBadChadProjectOverview from './pages/projects/gbc';
+import ContactPage from './pages/contact';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                 element={<GoodBadChadProjectOverview />}
               />
             </Route>
+            <Route path='contact' element={<ContactPage />} />
             <Route path='*' element={<FourOhFour />} />
           </Routes>
         </main>
