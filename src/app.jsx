@@ -8,10 +8,10 @@ import ContactPage from './pages/contact';
 
 function App() {
   return (
-    <div className='min-h-screen bg-[#ddd]'>
+    <div className='min-h-screen bg-[var(--background)]'>
       <BrowserRouter>
         <Header />
-        <main className='p-[25px] font-[vt323] text-xl'>
+        <main className='p-[25px] font-[vt323] text-xl text-[var(--dark-green)]'>
           <Routes>
             <Route index element={<HomePage />} />
             <Route path='projects'>
