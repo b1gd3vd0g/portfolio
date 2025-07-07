@@ -3,6 +3,7 @@ import title from '/src/assets/gbc_title.png';
 import ssVillage from '/src/assets/gbc-screenshots/village.png';
 import ssLearn from '/src/assets/gbc-screenshots/learn.png';
 import ssDefend from '/src/assets/gbc-screenshots/defend.png';
+import CollapsibleSection from '../../reusable/collapsible';
 
 function GoodBadChadProjectOverview() {
   return (
@@ -25,24 +26,46 @@ function GoodBadChadProjectOverview() {
           new SlideObject(ssDefend, 'Defend your home and protect your people.')
         ]}
       />
-      <h2>Overview</h2>
-      <p>
-        "The Good, the Bad, and Chad!" is a two-dimensional platformer adventure
-        game. This project is built upon three distinct layers that work
-        together seamlessly: the interactive frontend game, a backend API for
-        persistent accounts and save files, and a Terraform-powered deployment
-        system that allows anyone to launch the game infrastructure on AWS with
-        ease.
-      </p>
+      <TableOfContents />
+      <CollapsibleSection id='overview' title='Overview' startCollapsed={true}>
+        <p>
+          "The Good, the Bad, and Chad!" is a two-dimensional platformer
+          adventure game. This project is built upon three distinct layers that
+          work together seamlessly: the interactive frontend game, a backend API
+          for persistent accounts and save files, and a Terraform-powered
+          deployment system that allows anyone to launch the game infrastructure
+          on AWS with ease.
+        </p>
+      </CollapsibleSection>
       <FrontendSummary />
     </>
   );
 }
 
+function TableOfContents() {
+  return (
+    <CollapsibleSection title='Table of Contents'>
+      <ul className='text-2xl underline'>
+        <li>
+          <a href='#overview'>Overview</a>
+        </li>
+        <li>
+          <a href='#frontend'>Frontend</a>
+        </li>
+        <li>
+          <a href='#backend'>Backend</a>
+        </li>
+        <li>
+          <a href='#terraform'>Terraform</a>
+        </li>
+      </ul>
+    </CollapsibleSection>
+  );
+}
+
 function FrontendSummary() {
   return (
-    <>
-      <h2 className='underline decoration-[var(--lavender)]'>Frontend</h2>
+    <CollapsibleSection title='Frontend' id='frontend' startCollapsed={true}>
       <p>
         The frontend game was developed in a team of four in Winter 2024 as part
         of a game development class. Utilizing the principles of agile
@@ -98,7 +121,7 @@ function FrontendSummary() {
         also deepened my appreciation for performance optimization as a core
         part of thoughtful software design.
       </p>
-    </>
+    </CollapsibleSection>
   );
 }
 
