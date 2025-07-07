@@ -9,7 +9,7 @@
   --mint-green: #98ff98;
   --mint-accent: #33cc66;
   --dark-green: #1f2d1f;
-  --lavender: #e6e6fa;
+  --mustard: #fff3b0;
   --background: #f5f7f5;
 }
 
@@ -23,7 +23,7 @@
   }
 
   h3 {
-    @apply text-3xl;
+    @apply text-3xl m-2.5;
   }
 
   p {
