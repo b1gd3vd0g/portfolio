@@ -50,7 +50,7 @@ function SlideshowDotBar({ slideCount, curr }) {
           <></>
         ) : (
           <div
-            className='bg-[var(--mint-green)] brightness-[0.5] p-2 rounded-md'
+            className='bg-[var(--mint-accent)] p-2 rounded-md'
             key={`gbc-slideshow-dot-${i}-active`}
           ></div>
         )}
