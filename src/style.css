@@ -23,7 +23,7 @@
   }
 
   h3 {
-    @apply text-3xl m-2.5;
+    @apply text-3xl pl-5 m-2.5 underline decoration-[var(--mint-green)];
   }
 
   p {
