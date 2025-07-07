@@ -5,6 +5,15 @@ import ssLearn from '/src/assets/gbc-screenshots/learn.png';
 import ssDefend from '/src/assets/gbc-screenshots/defend.png';
 import CollapsibleSection from '../../reusable/collapsible';
 
+const gbcSlideshow = [
+  new SlideObject(ssVillage, 'Spawn at home in your peaceful, boring village.'),
+  new SlideObject(
+    ssLearn,
+    'Learn to hunt with your trusty slingshot and sword.'
+  ),
+  new SlideObject(ssDefend, 'Defend your home and protect your people.')
+];
+
 function GoodBadChadProjectOverview() {
   return (
     <>
@@ -13,19 +22,8 @@ function GoodBadChadProjectOverview() {
         A web game that runs in the browser, with persistent saves and a fully
         automated cloud deployment.
       </p>
-      <Slideshow
-        slides={[
-          new SlideObject(
-            ssVillage,
-            'Spawn at home in your peaceful, boring village.'
-          ),
-          new SlideObject(
-            ssLearn,
-            'Learn to hunt with your trusty slingshot and sword.'
-          ),
-          new SlideObject(ssDefend, 'Defend your home and protect your people.')
-        ]}
-      />
+      <LinkBar />
+      <Slideshow slides={gbcSlideshow} />
       <TableOfContents />
       <CollapsibleSection id='overview' title='Overview' startCollapsed={true}>
         <p>
@@ -38,7 +36,24 @@ function GoodBadChadProjectOverview() {
         </p>
       </CollapsibleSection>
       <FrontendSummary />
+      <BackendSummary />
     </>
+  );
+}
+
+function LinkBar() {
+  return (
+    <div className='flex justify-evenly'>
+      <a
+        href='https://www.goodbadchad.bigdevdog.com'
+        target='_blank'
+        rel='noreferrer'
+      >
+        <h3 className='no-underline bg-[var(--mint-accent)] px-4 py-2'>
+          Play now
+        </h3>
+      </a>
+    </div>
   );
 }
 
@@ -73,6 +88,29 @@ function FrontendSummary() {
         enemies, and settings in only ten short weeks. 100% of the art (pixel
         art and music alike) in this game is custom.
       </p>
+      <h3>Links:</h3>
+      <ul>
+        <li>
+          <a
+            href='https://www.goodbadchad.bigdevdog.com'
+            target='_blank'
+            rel='noreferrer'
+            className='underline'
+          >
+            Play now
+          </a>
+        </li>
+        <li>
+          <a
+            href='https://www.github.com/b1gd3vd0g/good-bad-chad-devin'
+            target='_blank'
+            rel='noreferrer'
+            className='underline'
+          >
+            Check out the code
+          </a>
+        </li>
+      </ul>
       <h3>Tech stack:</h3>
       <ul>
         <li>Vanilla JavaScript</li>
@@ -120,6 +158,91 @@ function FrontendSummary() {
         and solidified my passion for designing intuitive, versatile systems. It
         also deepened my appreciation for performance optimization as a core
         part of thoughtful software design.
+      </p>
+    </CollapsibleSection>
+  );
+}
+
+function BackendSummary() {
+  return (
+    <CollapsibleSection title='Backend' id='backend' startCollapsed={true}>
+      <p>
+        The backend API was created almost a year following the completion of
+        the frontend game. Unlike the frontend, I created the backend myself. I
+        created an express application to serve a RESTful API empowering users
+        to securely sign up, authenticate safely using JSON web tokens, as well
+        as create, read, and delete save files.
+      </p>
+      <h3>Links:</h3>
+      <ul>
+        <li>
+          <a
+            href='https://www.api.goodbadchad.bigdevdog.com'
+            target='_blank'
+            rel='noreferrer'
+            className='underline'
+          >
+            See API documentation
+          </a>
+        </li>
+        <li>
+          <a
+            href='https://www.github.com/b1gd3vd0g/good-bad-chad-saving-api'
+            target='_blank'
+            rel='noreferrer'
+            className='underline'
+          >
+            Check out the code
+          </a>
+        </li>
+      </ul>
+      <h3>Tech stack:</h3>
+      <ul>
+        <li>Node.js + Express</li>
+        <li>PostgreSQL</li>
+        <li>CORS</li>
+      </ul>
+      <h3>Highlights:</h3>
+      <ul>
+        <li>
+          Implemented robust security measures, including password hashing, data
+          encryption, and strict CORS policies to protect user data.
+        </li>
+        <li>
+          Designed a secure authentication and authorization system using JSON
+          Web Tokens (JWT).
+        </li>
+        <li>
+          Developed comprehensive OpenAPI documentation to clearly define and
+          standardize all API endpoints.
+        </li>
+      </ul>
+      <h3>Challenges and lessons:</h3>
+      <ul>
+        <li>
+          Early deployment efforts involved configuring a custom VPS on
+          Lightsail, which quickly revealed scalability and maintainability
+          limitations. This experience highlighted the importance of using
+          infrastructure that supports automation and growth.
+        </li>
+        <li>
+          Deploying the API and database taught me the importance of building
+          with security in mind from the start—especially around HTTPS
+          encryption, password hashing, and careful handling of environment
+          variables.
+        </li>
+        <li>
+          I gained a much deeper understanding of CORS policies, which were
+          critical to securely exposing my API to the frontend while preventing
+          unwanted cross-origin access.
+        </li>
+      </ul>
+      <h3>Takeaway:</h3>
+      <p>
+        This portion of the project taught me invaluable skills that I will take
+        forward into many projects in the future. It successfully converts "The
+        Good, the Bad, and Chad!" into my first functional full-stack web app,
+        which is professionally exciting.
       </p>
     </CollapsibleSection>
   );
