@@ -8,6 +8,9 @@
 @theme {
   --mint-green: #98ff98;
   --mint-accent: #33cc66;
+  --dark-green: #1f2d1f;
+  --lavender: #e6e6fa;
+  --background: #f5f7f5;
 }
 
 @layer base {
@@ -19,6 +22,10 @@
     @apply text-4xl;
   }
 
+  h3 {
+    @apply text-3xl;
+  }
+
   p {
     @apply tracking-wide text-xl;
   }
@@ -26,6 +33,10 @@
   img,
   canvas {
     @apply [image-rendering:pixelated];
+  }
+
+  ul {
+    @apply list-disc pl-5;
   }
 }
 
