@@ -8,7 +8,7 @@ function CollapsibleSection({
   startCollapsed = false
 }) {
   const [collapsed, setCollapsed] = useState(startCollapsed);
-  const arrowRotation = collapsed ? 'rotate-270' : 'rotate-180';
+  const arrowRotation = collapsed ? 'rotate-180' : 'rotate-270';
   const visibility = collapsed ? 'hidden' : '';
   return (
     <>
@@ -18,7 +18,9 @@ function CollapsibleSection({
         id={id}
       >
         <img src={arrow} className={`${arrowRotation}`} />
-        <h2 className='ml-5 underline decoration-[var(--mustard)]'>{title}</h2>
+        <h2 className='ml-5 underline decoration-[var(--mint-accent)]'>
+          {title}
+        </h2>
       </div>
       <div className={`${visibility}`}>{children}</div>
     </>
