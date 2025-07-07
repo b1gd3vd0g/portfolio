@@ -14,13 +14,13 @@ function Slideshow({ slides }) {
         <img
           src={arrow}
           onClick={decrement}
-          className='size-15 max-w-[5vmin] max-h-[10vmin]'
+          className='size-15 max-w-[5vmin] max-h-[10vmin] cursor-pointer'
         />
         <Slide data={slides[curr]} />
         <img
           src={arrow}
           onClick={increment}
-          className='rotate-180 size-15 max-w-[5vmin] max-h-[10vmin]'
+          className='rotate-180 size-15 max-w-[5vmin] max-h-[10vmin] cursor-pointer'
         />
       </div>
       <SlideshowDotBar slideCount={slides.length} curr={curr} />
