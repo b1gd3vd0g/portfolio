@@ -46,7 +46,7 @@ function WhatIDo() {
   return (
     <div className='ml-[10vw]'>
       <h1 className='text-left'>What I make:</h1>
-      <ul className='list-disc text-2xl'>
+      <ul className='text-2xl'>
         <li className='flex items-center'>
           <img src={controller} />
           <span className='p-[0.5em]'>Interactive web games to entertain</span>
