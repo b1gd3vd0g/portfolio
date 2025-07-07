@@ -37,6 +37,7 @@ function GoodBadChadProjectOverview() {
       </CollapsibleSection>
       <FrontendSummary />
       <BackendSummary />
+      <DevOpsSummary />
     </>
   );
 }
@@ -71,7 +72,7 @@ function TableOfContents() {
           <a href='#backend'>Backend</a>
         </li>
         <li>
-          <a href='#terraform'>Terraform</a>
+          <a href='#devops'>Dev Ops</a>
         </li>
       </ul>
     </CollapsibleSection>
@@ -243,6 +244,76 @@ function BackendSummary() {
         forward into many projects in the future. It successfully converts "The
         Good, the Bad, and Chad!" into my first functional full-stack web app,
         which is professionally exciting.
+      </p>
+    </CollapsibleSection>
+  );
+}
+
+function DevOpsSummary() {
+  return (
+    <CollapsibleSection title='Dev Ops' id='devops' startCollapsed='true'>
+      <p>
+        Desiring to develop my knowledge of DevOps processes, as well as to
+        deploy my application in a more cost effective manner, I created a
+        Terraform project to create Infrastructure as Code. Using this project
+        (and a handful of terminal commands), anybody can deploy "The Good, the
+        Bad, and Chad" on AWS infrastructure with ease. I also set up a CI/CD
+        pipeline on both projects so that changes to my repository would
+        automatically be reflected online.
+      </p>
+      <h3>Link:</h3>
+      <ul>
+        <li>
+          <a
+            className='underline'
+            target='_blank'
+            rel='noreferrer'
+            href='https://www.github.com/b1gd3vd0g/good-bad-chad-terraform'
+          >
+            Check out the code
+          </a>
+        </li>
+      </ul>
+      <h3>Tech stack:</h3>
+      <ul>
+        <li>AWS (API Gateway, Lambda, RDS, S3, CloudFront, Route53)</li>
+        <li>Terraform</li>
+        <li>GitHub Actions</li>
+      </ul>
+      <h3>Highlights:</h3>
+      <ul>
+        <li>
+          Serve the frontend game by holding the files in an S3 bucket and using
+          CloudFront to serve the content globally.
+        </li>
+        <li>
+          Created a CI/CD pipeline for both projects which will automatically
+          deploy the updated application following changes to the master branch.
+        </li>
+        <li>
+          Reduced deployment costs by over 50% compared to previous solutions.
+        </li>
+      </ul>
+      <h3>Challenges and lessons:</h3>
+      <ul>
+        <li>
+          This project introduced me to a lot of critical cloud computing and
+          security concepts, such as creating isolated VPCs and IAM roles using
+          the principle of least privilege.
+        </li>
+        <li>
+          In learning terraform, I encountered several race conditions that I
+          had to work around, forcing me to investigate and understand what was
+          going on behind the scenes.
+        </li>
+      </ul>
+      <h3>Takeaway:</h3>
+      <p>
+        Being my first introduction to both Terraform and the CI/CD pipeline,
+        this project was very exciting for me. The automatic deployment simply
+        by pushing changes to my remote repository feels revolutionary, and I
+        can't see myself working on projects in the future without configuring
+        similar processses early on.
       </p>
     </CollapsibleSection>
   );
