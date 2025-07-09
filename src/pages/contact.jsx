@@ -6,6 +6,7 @@ function ContactPage() {
   const [phone, setPhone] = useState('');
   const [header, setHeader] = useState('');
   const [message, setMessage] = useState('');
+
   return (
     <div>
       <h1>Let's get in touch!</h1>
@@ -78,6 +79,9 @@ function FormGroup({ label, hint, setter, rows = 1, type = 'text' }) {
 
 function SendButton({ name, email, phone, header, message }) {
   const API_HOST = 'https://www.api.bigdevdog.com';
+
+  const [feedback, setFeedback] = useState({ mood: 0, message: '' });
+
   const sendMail = async () => {
     const response = await fetch(`${API_HOST}/contact`, {
       method: 'POST',
@@ -91,19 +95,28 @@ function SendButton({ name, email, phone, header, message }) {
     });
     switch (response.status) {
       case 200:
-        console.log('success!');
+        setFeedback({ mood: 1, message: 'Message sent successfully!' });
         break;
       default:
-        console.log('fail!');
+        setFeedback({
+          mood: -1,
+          message: 'Message could not send. Try again later.'
+        });
     }
   };
+
+  const colorClass = feedback.mood < 0 ? 'text-[#66130a]' : '';
+
   return (
-    <p
-      onClick={sendMail}
-      className='cursor-pointer text-2xl bg-[var(--mint-accent)] size-fit px-2 py-1 rounded-lg m-auto'
-    >
-      Send mail
-    </p>
+    <>
+      <p
+        onClick={sendMail}
+        className='cursor-pointer text-2xl bg-[var(--mint-accent)] size-fit px-2 py-1 rounded-lg m-auto'
+      >
+        Send mail
+      </p>
+      <p className={`${colorClass}`}>{feedback.message}</p>
+    </>
   );
 }
 
