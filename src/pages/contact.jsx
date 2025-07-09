@@ -77,9 +77,9 @@ function FormGroup({ label, hint, setter, rows = 1, type = 'text' }) {
 }
 
 function SendButton({ name, email, phone, header, message }) {
-  const API_ADDR = '';
+  const API_HOST = 'https://www.api.bigdevdog.com';
   const sendMail = async () => {
-    const response = await fetch(API_ADDR, {
+    const response = await fetch(`${API_HOST}/contact`, {
       method: 'POST',
       body: JSON.stringify({
         name,
