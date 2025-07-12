@@ -77,7 +77,7 @@ function CheckThisOut() {
         <img src={gbcScreenshot} className='smoothed pt-7 pb-7' />
         <p className='text-center'>
           A 2d platformer adventure game written in JavaScript that runs in the
-          browser! Explore the world, chase down an evil wizard, and save your
+          browser. Explore the world, chase down an evil wizard, and save your
           mama!
         </p>
         <div className='flex w-1/1 justify-evenly'>
