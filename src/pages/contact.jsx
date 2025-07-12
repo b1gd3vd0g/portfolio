@@ -78,6 +78,9 @@ function SendButton({ name, email, phone, header, message }) {
     try {
       const response = await fetch(`${API_HOST}/contact`, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           name,
           email,
