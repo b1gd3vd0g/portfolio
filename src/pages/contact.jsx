@@ -86,20 +86,21 @@ function SendButton({ name, email, phone, header, message }) {
           message
         })
       });
+      const info = await response.json();
 
       switch (response.status) {
         case 200:
-          setFeedback({ mood: 1, message: 'Message sent successfully!' });
+          setFeedback({ mood: 1, message: info.message });
           break;
         default:
           setFeedback({
             mood: -1,
-            message: 'Message could not send. Try again later.'
+            message: info.message
           });
       }
     } catch (error) {
       console.log(error);
-      setFeedback({ mood: -1, message: 'Fetch failed.' });
+      setFeedback({ mood: -1, message: 'Request could not be sent.' });
     }
   };
 
