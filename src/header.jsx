@@ -29,7 +29,7 @@ function NavBar() {
 
   return (
     <nav className='bg-[var(--mint-accent)]'>
-      <NavLinks visible={extended} />
+      <NavLinks visible={extended} close={() => setExtended(false)} />
       <div
         className='flex justify-center cursor-pointer'
         onClick={flipExtension}
@@ -40,22 +40,24 @@ function NavBar() {
   );
 }
 
-function NavLinks({ visible }) {
+function NavLinks({ visible, close }) {
   if (!visible) return <></>;
   return (
     <div className='flex-col items-center'>
-      <NavLink path='/' label='Home page' />
-      <NavLink path='/projects' label='Check out my projects' />
-      <NavLink path='/contact' label='Shoot me a message' />
+      <NavLink path='/' label='Home page' close={close} />
+      <NavLink path='/projects' label='Check out my projects' close={close} />
+      <NavLink path='/contact' label='Shoot me a message' close={close} />
     </div>
   );
 }
 
-function NavLink({ path, label }) {
+function NavLink({ path, label, close }) {
   return (
     <>
       <Link to={path} className='flex'>
-        <p className='text-center w-1/1'>{label}</p>
+        <p className='text-center w-1/1' onClick={close}>
+          {label}
+        </p>
       </Link>
       <hr className='bg-[var(--mint-green)] h-px border-none mx-7' />
     </>
