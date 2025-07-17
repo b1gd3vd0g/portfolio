@@ -6,7 +6,9 @@ import {
   validatePhone
 } from '../util/contact_validators';
 
-function ContactPage() {
+/** The page containing the form where users can send me an email. */
+export default function ContactPage() {
+  // These values will **always** be valid input OR the empty string.
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -55,6 +57,19 @@ function ContactPage() {
   );
 }
 
+/**
+ * The Send Button is passed down the state variables representing the user's
+ * VALID input. It will only become **active** when ALL props contain a truthy
+ * value. The active button can be clicked to make a request to the backend
+ * API to send the email. This component will also offer feedback to the user
+ * beneath the button regarding the status of the request.
+ * @param {object} props The props object.
+ * @param {string} props.name The input in the name field.
+ * @param {string} props.email The input in the email field.
+ * @param {string} props.phone The input in the phone field.
+ * @param {string} props.header The input in the header field.
+ * @param {string} props.message The input in the message field.
+ */
 function SendButton({ name, email, phone, header, message }) {
   const API_HOST = 'https://www.api.bigdevdog.com';
 
@@ -75,6 +90,7 @@ function SendButton({ name, email, phone, header, message }) {
   /** Attempt to sent the email if the button is active. */
   const sendMail = async () => {
     if (!active) return;
+
     try {
       const response = await fetch(`${API_HOST}/contact`, {
         method: 'POST',
@@ -89,6 +105,7 @@ function SendButton({ name, email, phone, header, message }) {
           message
         })
       });
+
       const info = await response.json();
 
       switch (response.status) {
@@ -122,5 +139,3 @@ function SendButton({ name, email, phone, header, message }) {
     </>
   );
 }
-
-export default ContactPage;
