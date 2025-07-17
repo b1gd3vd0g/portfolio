@@ -1,14 +1,12 @@
-import Animation from '/src/reusable/animation';
-import Vector2 from '/src/util/vector2';
-
-import bddWave from '/src/assets/bdd_waving.png';
-import gbcScreenshot from '/src/assets/gbc-screenshots/village.png';
-import controller from '/src/assets/bullets/controller.png';
-import robot from '/src/assets/bullets/robot.png';
-import laptop from '/src/assets/bullets/laptop.png';
-import gbcTitle from '/src/assets/gbc_title.png';
-
 import { Link } from 'react-router-dom';
+import Vector2 from '../util/vector2';
+import Animation from '../reusable/animation';
+import bddWave from '../assets/bdd_waving.png';
+import gbcScreenshot from '../assets/gbc-screenshots/village.png';
+import controller from '../assets/bullets/controller.png';
+import robot from '../assets/bullets/robot.png';
+import laptop from '../assets/bullets/laptop.png';
+import gbcTitle from '../assets/gbc_title.png';
 
 function HomePage() {
   return (

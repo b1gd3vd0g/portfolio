@@ -1,5 +1,5 @@
 /** A class representing a two dimensional vector. Could be used for position, size, etc. */
-class Vector2 {
+export default class Vector2 {
   _pt;
 
   constructor(x, y) {
@@ -14,5 +14,3 @@ class Vector2 {
     return this._pt[1];
   }
 }
-
-export default Vector2;

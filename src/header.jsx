@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import arrow from './assets/arrow.png';
 import sprite from './assets/bdd_sprite.png';
 import text from './assets/bdd_text.png';
-import { useState } from 'react';
 
-import arrow from './assets/arrow.png';
-
-function Header() {
+/**
+ * Found at the top of every page. Contains branded logos linking to the home
+ * page, as well as a retractable nav bar linking to other primary pages.
+ */
+export default function Header() {
   return (
     <>
       <header className='bg-[var(--mint-green)]'>
@@ -63,5 +66,3 @@ function NavLink({ path, label, close }) {
     </>
   );
 }
-
-export default Header;

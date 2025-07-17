@@ -1,12 +1,16 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Header from './header';
 import HomePage from './pages/home';
 import ProjectsPage from './pages/projects';
-import Header from './header';
+import ContactPage from './pages/contact';
 import FourOhFour from './pages/404';
 import GoodBadChadProjectOverview from './pages/projects/gbc';
-import ContactPage from './pages/contact';
 
-function App() {
+/**
+ * Contains the entire app, including the BrowserRouter, and the layout.
+ * Defines all routes for the entire project.
+ */
+export default function App() {
   return (
     <div className='min-h-screen bg-[var(--background)] font-[vt323]'>
       <BrowserRouter>
@@ -29,5 +33,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
