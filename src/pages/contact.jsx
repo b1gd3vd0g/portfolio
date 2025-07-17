@@ -108,16 +108,8 @@ function SendButton({ name, email, phone, header, message }) {
 
       const info = await response.json();
 
-      switch (response.status) {
-        case 200:
-          setFeedback({ mood: 1, message: info.message });
-          break;
-        default:
-          setFeedback({
-            mood: -1,
-            message: info.message
-          });
-      }
+      const mood = response.status === 200 ? 1 : -1;
+      setFeedback({ mood, message: info.message });
     } catch (error) {
       console.log(error);
       setFeedback({ mood: -1, message: 'Request could not be sent.' });
