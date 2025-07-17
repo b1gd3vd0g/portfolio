@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import arrow from '/src/assets/arrow.png';
 
+/** Holds the data for a single slide of a slideshow. */
+export function SlideData(image, caption = '') {
+  this.image = image;
+  this.caption = caption;
+}
+
 /**
- * @param {Array<SlideObject>} props.slides The slides to include in the slideshow.
+ * Displays multiple slides of data to the user. The arrows on the side can be
+ * clicked to change from slide to slide.
+ * @param {object} props
+ * @param {Array<SlideData>} props.slides The slides to include in the slideshow.
  */
-function Slideshow({ slides }) {
+export default function Slideshow({ slides }) {
   const [curr, setCurr] = useState(0);
   const increment = () => setCurr((curr + 1) % slides.length);
   const decrement = () => setCurr(curr - 1 >= 0 ? curr - 1 : slides.length - 1);
@@ -28,6 +37,11 @@ function Slideshow({ slides }) {
   );
 }
 
+/**
+ * The portion of the slideshow actually presenting the current set of data,
+ * @param {object} props
+ * @param {SlideData} props.data The data to be displayed on this slide.
+ */
 function Slide({ data }) {
   const { image, caption = '' } = data;
   return (
@@ -38,6 +52,13 @@ function Slide({ data }) {
   );
 }
 
+/**
+ * Displays the dots below the slideshow indicating the index of the current
+ * slide.
+ * @param {object} props
+ * @param {number} props.slideCount The number of slides in the slideshow.
+ * @param {number} props.curr The current slide being desplayed.
+ */
 function SlideshowDotBar({ slideCount, curr }) {
   const dots = [];
   for (let i = 0; i < slideCount; i++) {
@@ -57,14 +78,8 @@ function SlideshowDotBar({ slideCount, curr }) {
       </div>
     );
   }
+
   return (
     <div className='m-auto flex space-evenly items-center size-fit'>{dots}</div>
   );
 }
-
-function SlideObject(image, caption = '') {
-  this.image = image;
-  this.caption = caption;
-}
-
-export { Slideshow, SlideObject };
