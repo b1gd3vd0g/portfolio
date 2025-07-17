@@ -1,20 +1,22 @@
-import { SlideObject, Slideshow } from '../../reusable/slideshow';
+import CollapsibleSection from '../../reusable/collapsible';
+import Slideshow, { SlideData } from '../../reusable/slideshow';
 import title from '/src/assets/gbc_title.png';
 import ssVillage from '/src/assets/gbc-screenshots/village.png';
 import ssLearn from '/src/assets/gbc-screenshots/learn.png';
 import ssDefend from '/src/assets/gbc-screenshots/defend.png';
-import CollapsibleSection from '../../reusable/collapsible';
 
+// The data for the slideshow at the top of the page.
 const gbcSlideshow = [
-  new SlideObject(ssVillage, 'Spawn at home in your peaceful, boring village.'),
-  new SlideObject(
-    ssLearn,
-    'Learn to hunt with your trusty slingshot and sword.'
-  ),
-  new SlideObject(ssDefend, 'Defend your home and protect your people.')
+  new SlideData(ssVillage, 'Spawn at home in your peaceful, boring village.'),
+  new SlideData(ssLearn, 'Learn to hunt with your trusty slingshot and sword.'),
+  new SlideData(ssDefend, 'Defend your home and protect your people.')
 ];
 
-function GoodBadChadProjectOverview() {
+/**
+ * The page describing the various parts of the project *The Good, the Bad, and
+ * Chad!*, providing links to repositories, live deployments, and documentation.
+ */
+export default function GoodBadChadProjectOverview() {
   return (
     <>
       <img src={title} className='m-auto' />
@@ -42,6 +44,7 @@ function GoodBadChadProjectOverview() {
   );
 }
 
+/** Contains buttons linking to various pages relevant to the project. */
 function LinkBar() {
   return (
     <div className='flex justify-evenly'>
@@ -58,6 +61,7 @@ function LinkBar() {
   );
 }
 
+/** Contains links to the various sections of this page. */
 function TableOfContents() {
   return (
     <CollapsibleSection title='Table of Contents'>
@@ -79,6 +83,7 @@ function TableOfContents() {
   );
 }
 
+/** Describes in depth the process of creating the frontend game. */
 function FrontendSummary() {
   return (
     <CollapsibleSection title='Frontend' id='frontend' startCollapsed={true}>
@@ -164,6 +169,7 @@ function FrontendSummary() {
   );
 }
 
+/** Describes in depth the process of creating the backend API and database. */
 function BackendSummary() {
   return (
     <CollapsibleSection title='Backend' id='backend' startCollapsed={true}>
@@ -249,6 +255,10 @@ function BackendSummary() {
   );
 }
 
+/**
+ * Describes in depth the process of applying DevOps principles to both parts
+ * of the game, including CI/CD pipelines and terraform deployments on AWS.
+ */
 function DevOpsSummary() {
   return (
     <CollapsibleSection title='Dev Ops' id='devops' startCollapsed='true'>
@@ -318,5 +328,3 @@ function DevOpsSummary() {
     </CollapsibleSection>
   );
 }
-
-export default GoodBadChadProjectOverview;
