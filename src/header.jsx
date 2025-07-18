@@ -47,14 +47,32 @@ function NavLinks({ visible, close }) {
   if (!visible) return <></>;
   return (
     <div className='flex-col items-center'>
-      <NavLink path='/' label='Home page' close={close} />
-      <NavLink path='/projects' label='Check out my projects' close={close} />
-      <NavLink path='/contact' label='Shoot me a message' close={close} />
+      <InternalNavLink path='/' label='Home page' close={close} />
+      <InternalNavLink
+        path='/projects'
+        label='Check out my projects'
+        close={close}
+      />
+      <InternalNavLink
+        path='/contact'
+        label='Shoot me a message'
+        close={close}
+      />
+      <ExternalNavLink
+        href='https://github.com/b1gd3vd0g'
+        label='GitHub'
+        close={close}
+      />
+      <ExternalNavLink
+        href='https://linkedin.com/in/devinpeevy'
+        label='LinkedIn'
+        close={close}
+      />
     </div>
   );
 }
 
-function NavLink({ path, label, close }) {
+function InternalNavLink({ path, label, close }) {
   return (
     <>
       <Link to={path} className='flex'>
@@ -62,6 +80,19 @@ function NavLink({ path, label, close }) {
           {label}
         </p>
       </Link>
+      <hr className='bg-[var(--mint-green)] h-px border-none mx-7' />
+    </>
+  );
+}
+
+function ExternalNavLink({ href, label, close }) {
+  return (
+    <>
+      <a href={href} className='flex' target='_blank' rel='noreferrer'>
+        <p className='text-center w-1/1' onClick={close}>
+          {label}
+        </p>
+      </a>
       <hr className='bg-[var(--mint-green)] h-px border-none mx-7' />
     </>
   );
